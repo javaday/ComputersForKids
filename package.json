@@ -1,0 +1,22 @@
+{
+  "name": "computers-for-kids",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javaday/ComputersForKids.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javaday/ComputersForKids/issues"
+  },
+  "homepage": "https://github.com/javaday/ComputersForKids#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
