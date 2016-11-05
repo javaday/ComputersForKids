@@ -1,9 +1,3 @@
 {
-	"firebase": {
-		"apiKey": "AIzaSyBtFVhPAAL5cylFfChZiGKeikNJleh6qfY",
-		"authDomain": "may-the-fourth.firebaseapp.com",
-		"databaseURL": "https://may-the-fourth.firebaseio.com",
-		"storageBucket": "",
-		"messagingSenderId": "981622875023"
-	}
+
 }
