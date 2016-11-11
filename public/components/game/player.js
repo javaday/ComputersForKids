@@ -68,13 +68,24 @@ module.exports = (function () {
 			player.body.acceleration.x = ACCLERATION;
 		}
 
+		//  Move ship towards mouse pointer
+		if (game.input.x < game.world.bounds.width - 20 &&
+			game.input.x > 20 &&
+			game.input.y > 20 &&
+			game.input.y < game.world.bounds.height - 20) {
+			var minDist = 200;
+			var dist = game.input.x - player.x;
+			player.body.velocity.x = MAXSPEED * game.math.clamp(dist / minDist, -1, 1);
+		}
+
 		//  Stop at screen edges
-		if (player.x > game.width - 50) {
-			player.x = game.width - 50;
+		if (player.x > game.world.bounds.width - 25) {
+			player.x = game.world.bounds.width - 25;
 			player.body.acceleration.x = 0;
 		}
-		if (player.x < 50) {
-			player.x = 50;
+
+		if (player.x < 25) {
+			player.x = 25;
 			player.body.acceleration.x = 0;
 		}
 
