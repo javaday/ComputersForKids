@@ -1,5 +1,6 @@
 const firebase = require('firebase');
 const path = require('path');
+const VisitorsDb = require('./visitors');
 
 let instance = null;
 
@@ -13,6 +14,7 @@ class Database {
 		});
 
 		this.db = firebase.database();
+		this.visitors = new VisitorsDb(this.db);
 	}
 
 	create(path, data) {
