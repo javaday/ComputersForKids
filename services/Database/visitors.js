@@ -18,18 +18,17 @@ class VisitorsDb {
 			catch (err) {
 				reject(err);
 			}
-			
-		});
 
-	}	
+		});
+	}
 
 	createVisitor() {
 
 		return new Promise((resolve, reject) => {
 
 			let newRef = this.db.ref('/visitors').push();
-			let data = new Visitor();			
-		
+			let data = new Visitor();
+
 			data.id = newRef.key;
 
 			newRef.set(data)
@@ -40,8 +39,24 @@ class VisitorsDb {
 					reject(err);
 				});
 		});
+	}
 
-	}	
+	updateVisitor(data) {
+
+		data.modified = new Date().getTime();
+
+		return new Promise((resolve, reject) => {
+
+			try {
+				this.db.ref('/visitors/' + data.id).update(data, () => {
+					resolve(data);
+				});
+			}
+			catch (err) {
+				reject(err);
+			}
+		});
+	}
 }
 
 module.exports = VisitorsDb;
