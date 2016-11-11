@@ -17,7 +17,7 @@ gulp.task('build', ['clean'], function() {
     
 	let files = glob.sync('./public/**/*.js');
 
-    return browserify({entries: files})
+    return browserify({entries: files, debug: true})
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./public/'));
