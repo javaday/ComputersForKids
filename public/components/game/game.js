@@ -16,12 +16,12 @@
 
 		gc.$onInit = function () {
 
-			let level = require('./level');			
+			let levels = require('./levels');			
 			let preloader = require('./preloader');
 
 			gc.game = new Phaser.Game(800, 600, Phaser.AUTO, 'game-container');
 
-			gc.game.state.add('level', level);			
+			gc.game.state.add('level1', levels.level1);			
 			gc.game.state.add('preloader', preloader, true);			
 		}
 	}

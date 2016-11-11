@@ -1,6 +1,6 @@
 module.exports = (function () {
 
-    let Player = require('./player');
+    let Player = require('./../player');
 
     let state = function () {
 

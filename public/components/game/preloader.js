@@ -11,7 +11,7 @@ module.exports = (function() {
         },
         
         create: function() {
-            this.state.start('level');
+            this.state.start('level1');
         }
         
     };
