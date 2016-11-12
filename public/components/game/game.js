@@ -8,9 +8,9 @@
 		templateUrl: 'templates/game/game.html'
 	});
 
-	GameController.$inject = [];
+	GameController.$inject = ['visitorService'];
 
-	function GameController() {
+	function GameController(visitorService) {
 
 		let gc = this;
 

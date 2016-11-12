@@ -2,6 +2,7 @@
 	
 	let app = angular.module('cfkMayTheFourth', ['ui.router', 'ui.bootstrap']);
 
+    app.constant('LocalStorageId', 'CFK-VISITOR');
 	app.config(AppConfiguration);
 
 	AppConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];
