@@ -93,7 +93,7 @@ module.exports = (function () {
 			this.storyText2 = this.game.add.text(
 				this.game.width * 0.5,
 				this.storyText1.y + this.storyText1.height + 85,
-				"A group of unlikely heroes have band together on a mission to provide much needed training tools to Jedi Younglings.",
+				"It is a time of conflict. A group of unlikely heroes have band together on a mission to provide critical training tools to Jedi Younglings.",
 				{
 					font: '700 44px "Arial"',
 					fill: '#ff6',
@@ -110,7 +110,7 @@ module.exports = (function () {
 			this.storyText3 = this.game.add.text(
 				this.game.width * 0.5,
 				this.storyText2.y + this.storyText2.height + 50,
-				"In an effort to prevent the training of future Jedis, the Empire has enlisted the services of space pirates to intercept shipments of computers.",
+				"In an effort to prevent the training of future Jedis, the Empire is sending Imperial Pilots to intercept shipments of computers.",
 				{
 					font: '700 44px "Arial"',
 					fill: '#ff6',
@@ -127,7 +127,7 @@ module.exports = (function () {
 			this.storyText4 = this.game.add.text(
 				this.game.width * 0.5,
 				this.storyText3.y + this.storyText3.height + 50,
-				"As an escort fighter, your job is to destroy any pirate ships that may attack the shipping caravan.",
+				"As an escort fighter, your job is to protect the shipping caravan from attack.",
 				{
 					font: '700 44px "Arial"',
 					fill: '#ff6',
@@ -140,6 +140,23 @@ module.exports = (function () {
 			this.storyText4.anchor.setTo(0.5, 1);
 
 			this.storyGroup.add(this.storyText4);
+
+			this.storyText5 = this.game.add.text(
+				this.game.width * 0.5,
+				this.storyText4.y + this.storyText4.height + 50,
+				"In doing so, you will become part of something greater than yourself...",
+				{
+					font: '700 44px "Arial"',
+					fill: '#ff6',
+					wordWrap: true,
+					wordWrapWidth: this.game.width - 50,
+					align: 'center'
+				}
+			);
+
+			this.storyText5.anchor.setTo(0.5, 1);
+
+			this.storyGroup.add(this.storyText5);
 
 			this.storyTween = this.game.add.tween(this.storyGroup).to({ y: -(this.game.height * 3) }, 71000, Phaser.Easing.Linear.InOut, true);
 			this.storyTween.onComplete.add((target, tween) => {
