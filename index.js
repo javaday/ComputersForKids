@@ -1,13 +1,29 @@
-var express = require('express');
-var app = express();
-var path = require('path');
+const express = require('express');
+const http = require('http');
+const path = require('path');
+const bodyParser = require('body-parser')
+const sanitizer = require('express-sanitizer');
+const config = require('./config');
+const routes = require('./routes');
+
+const app = express();
+
+app.set('port', process.env.PORT || 3001);
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(sanitizer());
+
+app.use(routes.router);
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.listen(8080);
+const server = http.createServer(app);
 
-console.log("listening on http://localhost:8080/");
+server.listen(app.get('port'), function () {
+    console.log(`Server listening on port ${app.get('port')}.`);
+});
+

@@ -1,12 +1,12 @@
 (function () {
 
-    let app = angular.module('mayTheFourth');
+    let app = angular.module('test');
 
     app.component('cosplayDetail', {
         bindings: {
             content: '<'
         },
-        templateUrl: 'cosplay.html',
+        templateUrl: 'templates/cosplay.html',
         controller: CosplayDetail,
         controllerAs: 'cd'
 
