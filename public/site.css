@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'sf_distant_galaxyregular';
+  src: url('/assets/fonts/sf_distant_galaxy-webfont.eot');
+  src: url('/assets/fonts/sf_distant_galaxy-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/sf_distant_galaxy-webfont.woff2') format('woff2'),
+       url('/assets/fonts/sf_distant_galaxy-webfont.woff') format('woff'),
+       url('/assets/fonts/sf_distant_galaxy-webfont.ttf') format('truetype'),
+       url('/assets/fonts/sf_distant_galaxy-webfont.svg#sf_distant_galaxyregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'sf_distant_galaxyregular';
+}
+
+.game-container {
+  background: url('/assets/game/background.png');
+  background-size: cover;
+  overflow: hidden;
+}
+
+.container-story {
+  perspective: 300px;
+}
+
+.container-story canvas {
+  height: 1500px;
+  transform-origin: 50% 100%;
+  transform: rotateX(25deg); 
+}

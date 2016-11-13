@@ -4,7 +4,7 @@ module.exports = (function () {
 
     let state = function () {
 
-        let starField = null;
+        let starField = null;        
         let hudText = null;
         let player = null;
         let asteroids = null;
@@ -19,7 +19,6 @@ module.exports = (function () {
 
         preload: function () {
 
-            this.load.image('starfield', 'assets/game/starfield.png');
             this.load.image('ship', 'assets/game/player.png');
             this.load.image('bullet', 'assets/game/bullet.png');
             this.load.image('enemy-green', 'assets/game/enemy-green.png');
@@ -37,8 +36,6 @@ module.exports = (function () {
             this.physics.startSystem(Phaser.Physics.ARCADE);
             this.physics.arcade.gravity.y = 0;
 
-            this.starField = this.add.tileSprite(0, 0, 800, 700, 'starfield');
-
             this.player = new Player(this);
             //this.hudText = this.game.add.text(10, 670, '', { font: '15px Arial', fill: '#ffffff' });
 
@@ -47,7 +44,6 @@ module.exports = (function () {
 
         update: function () {
 
-            this.starField.tilePosition.y += 0.125;
             this.player.update();
         }
     };

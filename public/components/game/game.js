@@ -18,7 +18,7 @@
 
 			let levels = require('./levels');			
 
-			gc.game = new Phaser.Game(800, 600, Phaser.AUTO, 'game-container');
+			gc.game = new Phaser.Game(900, 600, Phaser.AUTO, 'game-container', null, true);
 
             levels.loadGameLevels(gc.game);
             levels.startNext();

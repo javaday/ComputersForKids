@@ -1,7 +1,7 @@
 module.exports = (function () {
 
 	function LevelManager() {
-		
+
 		this.levels = [
 			{
 				order: 1,
@@ -10,6 +10,11 @@ module.exports = (function () {
 			},
 			{
 				order: 2,
+				name: 'opening',
+				state: require('./opening')
+			},
+			{
+				order: 3,
 				name: 'level1',
 				state: require('./level1')
 			}
@@ -21,7 +26,7 @@ module.exports = (function () {
 	LevelManager.prototype.loadGameLevels = function (game) {
 
 		this.game = game;
-		
+
 		this.levels.forEach((level) => {
 			game.state.add(level.name, level.state);
 		});
