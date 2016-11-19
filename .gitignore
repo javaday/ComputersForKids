@@ -3,6 +3,6 @@
 
 node_modules
 
-firebase-service-account.json
+fbServiceAccount-NoGit.json
 
 public/bundle.js
