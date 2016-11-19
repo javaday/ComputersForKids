@@ -25,10 +25,12 @@
   },
   "devDependencies": {
     "browserify": "^13.1.1",
+    "chokidar": "^1.6.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-load-plugins": "^1.4.0",
     "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.10",
     "vinyl-source-stream": "^1.1.0"
   }
 }
