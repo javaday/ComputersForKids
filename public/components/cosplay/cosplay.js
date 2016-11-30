@@ -1,6 +1,6 @@
 (function () {
 
-    let app = angular.module('test');
+    let app = angular.module('cfkMayTheFourth');
 
     app.component('cosplayDetail', {
         bindings: {
