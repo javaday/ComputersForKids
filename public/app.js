@@ -19,6 +19,10 @@
 			.state('game', {
 				url: '/game',
 				component: 'spaceGame'
+			})
+			.state('cosplay', {
+				url: '/cosplay',
+				component: 'cosplayDetail'
 			});
 	}
 
