@@ -6,7 +6,7 @@
         bindings: {
             content: '<'
         },
-        templateUrl: 'templates/cosplay.html',
+        templateUrl: 'templates/cosplay/cosplay.html',
         controller: CosplayDetail,
         controllerAs: 'cd'
 
