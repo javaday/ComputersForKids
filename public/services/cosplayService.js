@@ -6,7 +6,7 @@
 
     CosplayService.$inject = ['$q', '$http', 'LocalStorageId'];
 
-    function VisitorService($q, $http, LocalStorageId) {
+    function CosplayService($q, $http, LocalStorageId) {
 
 
 

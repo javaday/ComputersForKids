@@ -6,3 +6,5 @@ node_modules
 fbServiceAccount-NoGit.json
 
 public/bundle.js
+
+npm-debug.log  
