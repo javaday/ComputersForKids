@@ -12,9 +12,6 @@
 
 body {
   font-family: 'sf_distant_galaxyregular';
-}
-
-.game-container {
   background: url('/assets/game/background.png');
   background-size: cover;
   overflow: hidden;
@@ -135,3 +132,42 @@ tr {
    height: 50px;
 }
 /*End Cosplay page CSS*/
+
+.counter {
+  margin: auto;
+  min-width: 740px;
+  padding-top: 150px;
+  width: 740px;
+}
+
+.counter .text-center {
+    color: #FF6;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.CircleProgress {
+  margin: 10px;
+}
+.CircleProgressFg {
+  fill: none;
+}
+.CircleProgressBg {
+  fill: #2719C7;
+  fill-opacity: 0.25;
+  stroke: #000;
+}
+.CircleProgressFg {
+  transition: stroke-dashoffset 0.5s ease-in-out;
+  stroke: #2719C7;
+}
+.CircleCaptionText {
+  font-size: 25px;
+  fill: #2719C7;
+  transform: translate(0 50%);
+}
+.CircleProgressText {
+  font-size: 25px;
+  fill: #FF6;
+  transform: translate(0 50%);
+}

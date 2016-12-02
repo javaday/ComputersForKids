@@ -216,7 +216,7 @@ module.exports = (function () {
 
   function changeShip () {
     shipI > 23 ? shipI = 0 : ++shipI
-    player.loadTexture('rebel-ship' + shipI, 0)
+    //player.loadTexture('rebel-ship' + shipI, 0)
   }
   setInterval(changeShip, 1500)
 
