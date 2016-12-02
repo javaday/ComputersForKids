@@ -10,7 +10,7 @@ class Database {
 
 		firebase.initializeApp({
 			databaseURL: 'https://may-the-fourth.firebaseio.com/',
-			serviceAccount: path.join(__dirname, '/fbServiceAccount.json')
+			serviceAccount: path.join(__dirname, '/fbServiceAccount-NoGit.json')
 		});
 
 		this.db = firebase.database();
