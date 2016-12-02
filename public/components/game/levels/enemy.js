@@ -7,10 +7,12 @@
         
         this.green = {
             buildGroup(config) {
-                greenEnemies = game.add.group();
+                let randI = Math.floor(Math.random() * config.shipCount)
+								greenEnemies = game.add.group();
                 greenEnemies.enableBody = true;
                 greenEnemies.physicsBodyType = Phaser.Physics.ARCADE;
-                greenEnemies.createMultiple(config.shipCount, 'enemy-green');
+
+                greenEnemies.createMultiple(config.shipCount, 'ship'+randI);
                 greenEnemies.setAll('anchor.x', 0.5);
                 greenEnemies.setAll('anchor.y', 0.5);
                 greenEnemies.setAll('scale.x', 0.5);
