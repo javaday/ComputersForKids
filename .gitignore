@@ -1,5 +1,6 @@
 *.vscode
 *.zip
+*.log
 
 node_modules
 
