@@ -3,6 +3,7 @@
 
 node_modules
 
+fbAccountConfig.json
 fbServiceAccount-NoGit.json
 
 public/bundle.js
