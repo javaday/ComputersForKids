@@ -1,8 +1,15 @@
 const router = require('express').Router();
+const passport = require('passport');
 const db = require('../services/Database');
 
 exports.mountPath = '/users';
 exports.router = router;
+
+router.route('/login')
+    .post(
+        passport.authenticate('local'),
+        getCurrentUser
+    );
 
 router.route('/register')
     .post(registerUser);

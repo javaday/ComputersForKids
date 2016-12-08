@@ -32,18 +32,11 @@ class UsersDb {
                 this.auth.createUserWithEmailAndPassword(props.email, props.password)
                     .then((newAccount) => {
 
-                        let data = new User({
-							id: newAccount.uid,
-							email: newAccount.email
-						});
-						
-                        this.fb.ref('/users/' + data.id).set(data)
-                            .then(() => {
-                                resolve(data);
-                            })
-                            .catch((error) => {
-                                reject(error);
-							});
+                        resolve({
+                            id: newAccount.uid,
+                            email: newAccount.email
+                        }); 
+                        
                     })
                     .catch((error) => {
                         reject(error);
@@ -54,10 +47,6 @@ class UsersDb {
             }
 
         });
-
-
-
-        
     }
 
     updateUser(data) {
