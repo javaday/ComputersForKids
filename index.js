@@ -6,12 +6,13 @@ const sanitizer = require('express-sanitizer');
 const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
 const Authenticator = require('./services/Authenticator');
+const db = require('./services/Database');
 const config = require('./config');
 const routes = require('./routes');
 
 const app = express();
 
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 30177);
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,10 +39,14 @@ passport.serializeUser(function (user, cb) {
 });
 
 passport.deserializeUser(function (id, cb) {
-    db.users.findById(id, function (err, user) {
-        if (err) { return cb(err); }
-        cb(null, user);
-    });
+    
+    db.users.getUser(id)
+        .then((user) => {
+            cb(null, user);
+        })
+        .catch((error) => {
+            cb(err);
+        });
 });
 
 app.use(routes.router);
