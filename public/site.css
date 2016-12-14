@@ -171,3 +171,14 @@ tr {
   fill: #FF6;
   transform: translate(0 50%);
 }
+
+
+/* Modal Styles */
+
+.modal-title {
+    color: #2719C7;
+}
+
+.modal-body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
