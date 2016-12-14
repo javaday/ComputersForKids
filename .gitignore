@@ -5,7 +5,7 @@
 node_modules
 
 fbAccountConfig.json
-fbServiceAccount-NoGit.json
+fbServiceAccountConfig.json
 
 public/bundle.js
 
