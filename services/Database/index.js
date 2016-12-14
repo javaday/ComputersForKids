@@ -1,4 +1,4 @@
-const firebase = require('firebase');
+const admin = require('firebase-admin');
 const path = require('path');
 const VisitorsDb = require('./visitors');
 const UsersDb = require('./users');
@@ -9,13 +9,15 @@ class Database {
 
 	constructor() {
 
-        const config = require('./fbAccountConfig.json');
+		const config = require('../fbServiceAccountConfig.json');
 
-		firebase.initializeApp(config);
+		this.app = admin.initializeApp({
+			credential: admin.credential.cert(config),
+			databaseURL: 'https://may-the-fourth.firebaseio.com'
+		});
 
-        this.fb = firebase.database();
-        this.auth = firebase.auth();
-        this.visitors = new VisitorsDb(this);
+		this.fb = this.app.database();
+		this.visitors = new VisitorsDb(this);
 		this.users = new UsersDb(this);
 	}
 
@@ -53,7 +55,7 @@ class Database {
 			}
 		});
 	}
-	
+
 	static get instance() {
 
 		if (!instance) {

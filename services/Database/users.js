@@ -10,10 +10,12 @@ class UsersDb {
 
     getUser(userId) {
 
+        let self = this;
+        
         return new Promise((resolve, reject) => {
 
             try {
-                this.fb.ref('/users/' + userId).once('value', (snapshot) => {
+                self.fb.ref('/users/' + userId).once('value', (snapshot) => {
                     resolve(snapshot.val());
                 });
             }

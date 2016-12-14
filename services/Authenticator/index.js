@@ -1,50 +1,61 @@
 const firebase = require('firebase');
 
+let instance = null;
+
 class Authenticator {
 
-	constructor() {
+    constructor() {
 
-		this.config = require('./../Database/fbAccountConfig.json');
-	}
+        const config = require('../fbAccountConfig.json');
 
-	authenticate(email, password, done) {
+        this.app = firebase.initializeApp(config, 'Authenticator');
+        this.auth = this.app.auth();
+    }
 
-		let self = this;
-		
-		authStrategy(email, password)
-			.then((user) => {
-				done(null, user);
-			})
-			.catch((error) => {
-				return done(error);
-			});
-	
-		function authStrategy(email, pasword) {
+    authenticate(email, password, done) {
 
-			return new Promise((resolve, reject) => {
+        let self = this;
 
-				let userApp = firebase.initializeApp(self.config, email);
+        authStrategy(email, password)
+            .then((user) => {
+                done(null, user);
+            })
+            .catch((error) => {
+                return done(error);
+            });
 
-				userApp.auth().signInWithEmailAndPassword(email, password)
-					.then((account) => {
+        function authStrategy(email, pasword) {
 
-						let user = {
-							id: account.uid,
-							email: account.email
-						};
+            return new Promise((resolve, reject) => {
 
-						userApp.auth().signOut();
-						userApp.delete();
+                self.auth.signInWithEmailAndPassword(email, password)
+                    .then((account) => {
 
-						resolve(user);
-					})
-					.catch((error) => {
-						reject(error);
-					});
-			});
+                        let user = {
+                            id: account.uid,
+                            email: account.email
+                        };
 
+                        self.auth.signOut();
+                        
+                        resolve(user);
+                    })
+                    .catch((error) => {
+                        reject(error);
+                    });
+            });
+
+        }
+    }
+
+	static get instance() {
+
+		if (!instance) {
+			instance = new Authenticator();
 		}
-	}	
+
+		return instance;
+	}
 }
 
-module.exports = Authenticator;
+module.exports = Authenticator.instance;
