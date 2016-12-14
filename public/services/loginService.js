@@ -25,11 +25,32 @@
 					deferred.reject(err);
 				});
 
-			return deferred;
+			return deferred.promise;
+        }
+		
+        function logout() {
+
+			let deferred = $q.defer();
+
+			$http.get('/users/logout')
+				.then((response) => {
+					if (response.data) {
+						deferred.resolve(response.data);
+					}
+					else {
+						deferred.reject('Logout failed.');
+					}
+				})
+				.catch((err) => {
+					deferred.reject(err);
+				});
+
+			return deferred.promise;
 		}
 
 		return {
-			authenticate: authenticate
+            authenticate: authenticate,
+			logout: logout
 		};
 	}
 })();

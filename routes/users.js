@@ -7,9 +7,12 @@ exports.router = router;
 
 router.route('/login')
     .post(
-        passport.authenticate('local'),
-        getCurrentUser
+    passport.authenticate('local'),
+    getCurrentUser
     );
+
+router.route('/logout')
+    .get(logoutUser);
 
 router.route('/register')
     .post(registerUser);
@@ -28,23 +31,34 @@ function defaultErrorHandler(err, req, res, next) {
 }
 
 function getCurrentUser(req, res, next) {
-	
-	if (req.user) {
-		// user is logged in	
-		res.json(req.user);
-	}
-	else {
-		// no user logged in
-		res.json({});
-	}
+
+    if (req.user) {
+        // user is logged in	
+        res.json(req.user);
+    }
+    else {
+        // no user logged in
+        res.json({});
+    }
+}
+
+function logoutUser(req, res, next) {
+
+    if (req.session) {
+        req.session.destroy(function (err) {
+            
+        });
+    }
+
+    res.json({});
 }
 
 function registerUser(req, res, next) {
 
-	let data = {
-		email: req.body.email,
-		password: req.body.password
-	};
+    let data = {
+        email: req.body.email,
+        password: req.body.password
+    };
 
     db.users.createUser(data)
         .then((user) => {

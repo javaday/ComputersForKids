@@ -1,4 +1,5 @@
 const firebase = require('firebase');
+const db = require('../Database');
 
 let instance = null;
 
@@ -31,14 +32,15 @@ class Authenticator {
                 self.auth.signInWithEmailAndPassword(email, password)
                     .then((account) => {
 
-                        let user = {
-                            id: account.uid,
-                            email: account.email
-                        };
-
                         self.auth.signOut();
                         
-                        resolve(user);
+                        db.users.getUser(account.uid)
+                            .then((user) => {
+                                resolve(user);
+                            })
+                            .catch((error) => {
+                                reject(error);
+                            });
                     })
                     .catch((error) => {
                         reject(error);
@@ -48,14 +50,14 @@ class Authenticator {
         }
     }
 
-	static get instance() {
+    static get instance() {
 
-		if (!instance) {
-			instance = new Authenticator();
-		}
+        if (!instance) {
+            instance = new Authenticator();
+        }
 
-		return instance;
-	}
+        return instance;
+    }
 }
 
 module.exports = Authenticator.instance;

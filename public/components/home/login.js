@@ -1,63 +1,99 @@
-(function () {
+(function() {
 
-	let app = angular.module('cfkMayTheFourth');
+    let app = angular.module('cfkMayTheFourth');
 
-	app.component('login', {
-		controller: LoginController,
-		controllerAs: 'lc',
-		templateUrl: 'templates/home/login.html'
-	});
+    app.component('login', {
+        controller: LoginController,
+        controllerAs: 'lc',
+        templateUrl: 'templates/home/login.html'
+    });
 
-	app.controller('loginModalController', LoginModalController);
+    app.controller('loginModalController', LoginModalController);
 
-	LoginController.$inject = ['$uibModal'];
-	LoginModalController.$inject = ['$uibModalInstance'];
+    LoginController.$inject = ['$uibModal', 'profile', 'loginService'];
+    LoginModalController.$inject = ['$uibModalInstance', 'loginService'];
 
-	function LoginController($uibModal) {
+    function LoginController($uibModal, profile, loginService) {
 
-		let lc = this;
+        let lc = this;
 
-		lc.$onInit = function () {
+        lc.user = null;
 
-		}
+        lc.$onInit = function() {
 
-		lc.login = function () {
+        }
 
-			var modalInstance = $uibModal.open({
-				templateUrl: 'loginModal.html',
-				size: 'sm',
-				controller: 'loginModalController',
-				controllerAs: 'lm',
-				resolve: {}
-			});
+        lc.login = function() {
 
-			modalInstance.result.then(
-				function (credentials) {
-					$ctrl.selected = selectedItem;
-				},
-				function () {
-					// cancelled
-				}
-			);
-		}
-	}
+            var modalInstance = $uibModal.open({
+                templateUrl: 'loginModal.html',
+                size: 'sm',
+                controller: 'loginModalController',
+                controllerAs: 'lm',
+                resolve: {}
+            });
 
-	function LoginModalController($uibModalInstance) {
+            modalInstance.result.then(
+                function(user) {
 
-		let lm = this;
+                    profile.id = user.id;
+                    profile.email = user.email;
+                    profile.firstName = user.firstName;
+                    profile.lastName = user.lastName;
 
-		lm.credentials = {
-			email: '',
-			password: ''
-		};
-		
-		lm.ok = function () {
-			$uibModalInstance.close(lm.credentials);
-		};
+                    lc.user = user;
+                },
+                function() {
+                    // cancelled
+                }
+            );
+        };
 
-		lm.cancel = function () {
-			$uibModalInstance.dismiss('cancel');
-		};
-	}
+        lc.logout = function() {
+
+            profile.id = '';
+            profile.email = '';
+            profile.firstName = '';
+            profile.lastName = '';
+
+            lc.user = null;
+			
+            loginService.logout()
+                .then(() => {
+                })
+                .catch((err) => {
+                    console.log('logout: ', err);
+                });
+        };
+    }
+
+    function LoginModalController($uibModalInstance, loginService) {
+
+        let lm = this;
+
+        lm.credentials = {
+            email: '',
+            password: ''
+        };
+        lm.error = '';
+
+        lm.ok = function() {
+
+            lm.error = '';
+
+            loginService.authenticate(lm.credentials)
+                .then((user) => {
+                    $uibModalInstance.close(user);
+                })
+                .catch((err) => {
+                    console.log('login: ', err);
+                    lm.error = err.data;
+                });
+        };
+
+        lm.cancel = function() {
+            $uibModalInstance.dismiss('cancel');
+        };
+    }
 
 })();

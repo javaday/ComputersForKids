@@ -1,9 +1,20 @@
-<a href="#" class="navbar-link" ng-click="lc.login()">Login</a>
+
+<p ng-if="lc.user" class="navbar-text navbar-right">
+	{{ lc.user.firstName }} <a href="#" class="navbar-link" ng-click="lc.logout()">Logout</a>
+</p>
+
+<p ng-if="!lc.user" class="navbar-text navbar-right">
+	<a href="#" class="navbar-link" ng-click="lc.login()">Login</a>
+</p>
+
 <script type="text/ng-template" id="loginModal.html">
 	<div class="modal-header">
 		<h3 class="modal-title" id="modal-title">Login</h3>
 	</div>
 	<div class="modal-body" id="modal-body">
+		<p ng-if="lm.error">
+			<span class="text-danger">{{ lm.error }}</span>
+		</p>
 		<form class="form-horizontal">
 			<div class="form-group">
 				<label class="col-sm-3 control-label">Email</label>
