@@ -3,7 +3,9 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Computers For Kids</title>
+	<title>May The 4th</title>
+	<link rel="icon" type="image/png" href="assets/images/favicon.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
@@ -11,11 +13,17 @@
 </head>
 
 <body ng-app="cfkMayTheFourth">
+	<nav class="navbar navbar-fixed-top">
+		<div class="container">
+			<login></login>
+		</div>
+	</nav>
 	<div class="container">
 		<ui-view></ui-view>
 	</div>
-	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-beta.3/angular-ui-router.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.min.js"></script>

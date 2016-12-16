@@ -1,9 +1,11 @@
 *.vscode
 *.zip
+*.log
 
 node_modules
 
-fbServiceAccount-NoGit.json
+fbAccountConfig.json
+fbServiceAccountConfig.json
 
 public/bundle.js
 

@@ -1,0 +1,33 @@
+<svg class="CircleProgress" 
+	ng-attr-width="{{ cp.width }}" 
+	ng-attr-height="{{ cp.height }}" 
+	ng-attr-view_box="{{ cp.viewBox }}">
+	<circle class="CircleProgressBg" 
+		ng-attr-cx="{{ cp.cx }}" 
+		ng-attr-cy="{{ cp.cy }}" 
+		ng-attr-r="{{ cp.circleRadius }}"
+		ng-attr-stroke-width="{{ cp.strokeWidth + 'px' }}"
+	/>
+	<circle class="CircleProgressFg" 
+		ng-attr-cx="{{ cp.radius }}" 
+		ng-attr-cy="{{ cp.radius }}"
+		ng-attr-r="{{ cp.circleRadius }}"
+		ng-attr-stroke-width="{{ cp.strokeWidth + 'px' }}"
+		ng-attr-style="{{ 'stroke-dasharray: ' + cp.dashArray + '; stroke-dashoffset: ' + cp.dashOffset + ';' }}"
+		transform="rotate(-90 {{ cp.radius }} {{ cp.radius }})"
+	/>
+	<text class="CircleCaptionText" 
+		ng-attr-x="{{ cp.radius }}"
+		ng-attr-y="{{ cp.captionY }}"
+		dy=".2em" 
+		text-anchor="middle">
+			{{ cp.caption }}
+	</text>
+	<text class="CircleProgressText" 
+		ng-attr-x="{{ cp.radius }}"
+		ng-attr-y="{{ cp.valueY }}"
+		dy=".4em" 
+		text-anchor="middle">
+			{{ cp.value }}
+	</text>
+</svg>

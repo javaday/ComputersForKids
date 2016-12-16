@@ -1,0 +1,7 @@
+<div class="counter">
+	<div class="text-center">{{ cd.caption }}</div>
+	<circle-progress ng-attr-value="{{ cd.days }}" total="365" caption="Days" stroke-width="4" radius="80" />
+	<circle-progress ng-attr-value="{{ cd.hours }}" total="24" caption="Hours" stroke-width="4" radius="80" />
+	<circle-progress ng-attr-value="{{ cd.minutes }}" total="60" caption="Minutes" stroke-width="4" radius="80" />
+	<circle-progress ng-attr-value="{{ cd.seconds }}" total="60" caption="Seconds" stroke-width="4" radius="80" />
+</div>

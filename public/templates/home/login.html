@@ -1,0 +1,37 @@
+
+<p ng-if="lc.user" class="navbar-text navbar-right">
+	{{ lc.user.firstName }} <a href="#" class="navbar-link" ng-click="lc.logout()">Logout</a>
+</p>
+
+<p ng-if="!lc.user" class="navbar-text navbar-right">
+	<a href="#" class="navbar-link" ng-click="lc.login()">Login</a>
+</p>
+
+<script type="text/ng-template" id="loginModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title">Login</h3>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<p ng-if="lm.error">
+			<span class="text-danger">{{ lm.error }}</span>
+		</p>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Email</label>
+				<div class="col-sm-7">
+					<input type="email" class="form-control" placeholder="Email" ng-model="lm.credentials.email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Password</label>
+				<div class="col-sm-7">
+					<input type="password" class="form-control" placeholder="Password" ng-model="lm.credentials.password">
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="lm.ok()">Login</button>
+		<button class="btn btn-warning" type="button" ng-click="lm.cancel()">Cancel</button>
+	</div>
+</script>

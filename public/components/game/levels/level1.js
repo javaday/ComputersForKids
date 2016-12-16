@@ -2,6 +2,7 @@ module.exports = (function () {
 
     let Player = require('./../player');
     let EnemyBuilder = require('./enemy');
+		let config = require('../config')
 
     let state = function () {
 
@@ -19,7 +20,7 @@ module.exports = (function () {
         },
 
         preload: function () {
-
+					  let game = this
             this.load.image('ship', 'assets/game/player.png');
             this.load.image('bullet', 'assets/game/bullet.png');
             this.load.image('enemy-green', 'assets/game/enemy-green.png');
@@ -29,6 +30,14 @@ module.exports = (function () {
             this.load.bitmapFont('spacefont', 'assets/game/spacefont/spacefont.png', 'assets/game/spacefont/spacefont.xml');
             this.load.image('boss', 'assets/game/boss.png');
             this.load.image('deathRay', 'assets/game/death-ray.png');
+
+						config.assets.sprites.empire.ships.forEach((ship, i)=>{
+							game.load.image(`ship${i}`, ship)
+						})
+
+						config.assets.sprites.rebels.ships.forEach((ship, i)=>{
+							game.load.image(`rebel-ship${i}`, ship)
+						})
 
         },
 
@@ -41,9 +50,9 @@ module.exports = (function () {
             this.player = new Player(this);
             
             this.greenEnemies = new EnemyBuilder(this).green.buildGroup({
-                shipCount: 15,
+                shipCount: 14,
                 damage: 100,
-                speed: 15,
+                speed: 65,
                 health: 50,
                 colliders: [{
                     name:'player',

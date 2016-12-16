@@ -1,6 +1,7 @@
-const firebase = require('firebase');
+const admin = require('firebase-admin');
 const path = require('path');
 const VisitorsDb = require('./visitors');
+const UsersDb = require('./users');
 
 let instance = null;
 
@@ -8,36 +9,51 @@ class Database {
 
 	constructor() {
 
-		firebase.initializeApp({
-			databaseURL: 'https://may-the-fourth.firebaseio.com/',
-			serviceAccount: path.join(__dirname, '/fbServiceAccount-NoGit.json')
+		const config = require('../fbServiceAccountConfig.json');
+
+		this.app = admin.initializeApp({
+			credential: admin.credential.cert(config),
+			databaseURL: 'https://may-the-fourth.firebaseio.com'
 		});
 
-		this.db = firebase.database();
-		this.visitors = new VisitorsDb(this.db);
+		this.fb = this.app.database();
+		this.visitors = new VisitorsDb(this);
+		this.users = new UsersDb(this);
 	}
 
-	create(path, data) {
+	createRecord(node, data) {
 
 		return new Promise((resolve, reject) => {
 
-			let newRef = this.db.ref('/' + path).push();
+			let newRef = this.fb.ref('/' + node).push();
 
 			data.id = newRef.key;
 
 			newRef.set(data)
 				.then(() => {
-					resolve({
-						success: true,
-						data: data
-					});
+					resolve(data.toJSON());
 				})
 				.catch((err) => {
 					reject(err);
 				});
-
 		});
+	}
 
+	updateRecord(node, data) {
+
+		data.modified = new Date().getTime();
+
+		return new Promise((resolve, reject) => {
+
+			try {
+				this.fb.ref('/' + node + '/' + data.id).update(data, () => {
+					resolve(data);
+				});
+			}
+			catch (err) {
+				reject(err);
+			}
+		});
 	}
 
 	static get instance() {

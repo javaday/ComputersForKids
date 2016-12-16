@@ -3,16 +3,16 @@ module.exports = (function () {
 	function LevelManager() {
 
 		this.levels = [
-			// {
-			// 	order: 1,
-			// 	name: 'preloader',
-			// 	state: require('./preloader')
-			// },
-			// {
-			// 	order: 2,
-			// 	name: 'opening',
-			// 	state: require('./opening')
-			// },
+			{
+				order: 1,
+				name: 'preloader',
+				state: require('./preloader')
+			},
+			{
+				order: 2,
+				name: 'opening',
+				state: require('./opening')
+			},
 			{
 				order: 3,
 				name: 'level1',

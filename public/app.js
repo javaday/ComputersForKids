@@ -2,6 +2,14 @@
 	
 	let app = angular.module('cfkMayTheFourth', ['ui.router', 'ui.bootstrap']);
 
+	app.value('profile', {
+        id: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        roles: {}
+	});
+
     app.constant('LocalStorageId', 'CFK-VISITOR');
 	app.config(AppConfiguration);
 
