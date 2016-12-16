@@ -1,0 +1,103 @@
+<div id="cosplayBg">
+	<div class="container-fluid">
+		<div class="row row1-bg">
+			<div class="col-xs-12 col-md-8 col-md-offset-2">
+				<h1 class="text-center">Join us for Star Wars Cosplay</h1>
+				<h4>Lucas ipsum dolor sit amet ackbar md-5 illum ackbar bajic amedda joelle dunwell tarkin ki-adi-mundi. Antonio jamillia
+					ev-9d9 nosaurian ansion dak arkanis bertroff p'w'eck. Jinn solo even ig-88 lars neimoidian lyn coruscant grizmallt.
+					Colton antilles coruscant terrik fett.</h4>
+			</div>
+		</div>
+		<div class="row row2-bg">
+			<div class="col-xs-12 col-md-10 col-md-offset-1 text-center" id="row2-fg">
+				<h4 class="text-signup">Blah blah blah here is the form to <button class="btn btn-warning" id="sign-up"><strong>Sign Up</strong></button> to
+					be one of your favorite Star Wars character during the event. </h4>
+				<audio id="door-sound" src="sfx/spacedoorsfx.mp3"></audio>
+			</div>
+		</div>
+		<div class="row" id="slide-bg">
+			<div class="col-md-10 col-md-offset-1">
+				<div id="div-slide" class="text-center">
+
+					<h1>Cosplay Time Slot Schedule</h1>
+					<p>Please select a time slot.</p>
+					<div class="col-md-3 timeSlot">
+						<p>6:00PM - 6:30PM</p>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
+					</div>
+					<div class="col-md-3 timeSlot">
+						<p>6:30PM - 7:00PM</p>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+					</div>
+					<div class="col-md-3 timeSlot">
+						<p>7:00PM - 7:30PM</p>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+					</div>
+					<div class="col-md-3 timeSlot">
+						<p>7:30PM - 8:00PM</p>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/ng-template" id="cosplayModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title text-center" id="modal-title">Cosplay Signup</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p ng-if="cm.error">
+            <span class="text-danger">{{ cm.error }}</span>
+        </p>
+        <form class="form-horizontal modal-text">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Name</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" placeholder="Name" ng-model="cm.signup.name">
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-7">
+                    <input type="email" class="form-control" placeholder="Email" ng-model="cm.signup.email">
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label">Character</label>
+                <div class="col-sm-7">
+                   <select class="form-control char-dropdown" mg-model="cm.signup.character">
+						<option>Select Character...</option>
+						<option>Chewbacca</option>
+						<option>Luke Pawlicker</option>
+						<option>Darth Kitty</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+                </div>
+				
+            </div>
+            
+        </form>
+    </div>
+    <div class="modal-footer">
+      	<button class="btn btn-primary" type="button" ng-click="cm.ok()">Signup</button>
+        <button class="btn btn-warning" type="button" ng-click="cm.cancel()">Cancel</button>
+    </div>
+</script>
