@@ -31,6 +31,10 @@
 			.state('cosplay', {
 				url: '/cosplay',
 				component: 'cosplayDetail'
+			})
+			.state('announcements-admin', {
+				url: '/announcements/admin',
+				component: 'announcementsAdmin'
 			});
 	}
 

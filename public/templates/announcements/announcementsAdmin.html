@@ -1,0 +1,25 @@
+<div class="panel panel-default panel-admin">
+	<div class="pull-right">
+		<button type="button" class="btn btn-primary" title="New Announcement"><i class="fa fa-plus"></i></button>
+	</div>
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th style="text-align: center;">Active</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="a in aa.announcements track by $index">
+					<td>{{ a.title }}</td>
+					<td>{{ a.description }}</td>
+					<td style="text-align: center;">{{ a.active ? 'Y' : 'N' }}</td>
+					<td><a href="#" class="text-danger" title="Delete" ng-click="aa.delete($event, a)"><i class="fa fa-times"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
