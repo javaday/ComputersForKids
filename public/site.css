@@ -12,7 +12,7 @@
 
 body {
   font-family: 'sf_distant_galaxyregular';
-  background: url('/assets/game/background.png');
+  background: url('/assets/game/background.png') fixed;
   background-size: cover;
   overflow: hidden;
 }
@@ -27,8 +27,8 @@ body {
   transform: rotateX(25deg); 
 }
 /*Start Cosplay page CSS*/
-#cosplayBg {
-    background-color: #000;
+/*#cosplayBg {
+    background-color: #000;*/
 }
 .row1-bg {
     background-size: cover;
