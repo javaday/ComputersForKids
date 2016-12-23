@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<h2 class="text-center col-md-12">Acceptable Items</h2>
+				<div ng-repeat="item in li.acceptableItems track by $index">
+					<div class="col-md-2 col-xs-6">
+						<p class="pull-left">{{::item}}</p>
+					</div>
+				</div>
+				<p class="text-center col-md-12"><strong>{{li.hddNote}}</strong></p>
+				<h2 class="text-center col-md-12">Not Acceptable Items</h2>
+				<div ng-repeat="item in li.notAcceptable track by $index">
+					<div class="col-md-2 col-xs-6">
+						<label class="pull-left">{{item}}</label>
+					</div>
+				</div>
+			</div>
+			<h2 class="text-center col-md-12"><a href="https://cfkid.org/" target="_blank">Visit Computer For Kids Website</a></h2>
+			<p class="text-center"><strong><i class="fa fa-phone"></i></strong> 1.208.345.0346</p>			
+			<p class="text-center"><strong><i class="fa fa-road"></i></strong> 8540 W. Elisa Boise, Idaho 83709</p>
+			<p class="text-center"><strong><i class="fa fa-hourglass"></i></strong> Monday - Friday From 8-4</p>			
+			<store-locator></store-locator>
+		</div>
+	</div>
+</div>

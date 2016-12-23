@@ -1,0 +1,5 @@
+<div>
+  <ng-map center="[43.5788, -116.2885]" zoom="13" style="height: 400px;">
+	  <marker ng-repeat="marker in slc.markers track by $index" ng-attr-position="[{{ marker.coordinates[1] }}, {{ marker.coordinates[0] }}]"></marker>
+  </ng-map>
+</div>
