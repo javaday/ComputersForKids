@@ -13,7 +13,7 @@
 		bindings: {
 			item: '<'
 		},
-		templateUrl: 'public/templates/donation/donation.html'
+		templateUrl: 'templates/donation/donation.html'
 	})
 
 	FormControl.$inject = ['$scope', 'formService'];

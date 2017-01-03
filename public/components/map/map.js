@@ -6,7 +6,7 @@
 		controllerAs: 'cl',
 		bindings: {
 		},
-		templateUrl: 'public/templates/map/map.html'
+		templateUrl: 'templates/map/map.html'
 	});
 
 	CFKLocation.$inject = ['$rootScope', 'NgMap'];
