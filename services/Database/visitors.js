@@ -2,16 +2,20 @@ const Visitor = require('./models/Visitor');
 
 class VisitorsDb {
 
-	constructor(firebase) {
-		this.db = firebase;
+	constructor(db) {
+        this.db = db;
+        this.fb = db.fb;
+        this.auth = db.auth
 	}
 
 	getVisitor(visitorId) {
 
+		let self = this;
+		
 		return new Promise((resolve, reject) => {
 
 			try {
-				this.db.ref('/visitors/' + visitorId).once('value', (snapshot) => {
+				self.fb.ref('/visitors/' + visitorId).once('value', (snapshot) => {
 					resolve(snapshot.val());
 				});
 			}
@@ -24,9 +28,11 @@ class VisitorsDb {
 
 	createVisitor() {
 
+		let self = this;
+		
 		return new Promise((resolve, reject) => {
 
-			let newRef = this.db.ref('/visitors').push();
+			let newRef = self.fb.ref('/visitors').push();
 			let data = new Visitor();
 
 			data.id = newRef.key;
@@ -43,12 +49,14 @@ class VisitorsDb {
 
 	updateVisitor(data) {
 
+		let self = this;
+		
 		data.modified = new Date().getTime();
 
 		return new Promise((resolve, reject) => {
 
 			try {
-				this.db.ref('/visitors/' + data.id).update(data, () => {
+				self.fb.ref('/visitors/' + data.id).update(data, () => {
 					resolve(data);
 				});
 			}
