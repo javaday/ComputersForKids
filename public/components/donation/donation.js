@@ -1,12 +1,6 @@
 (function () {
 	let app = angular.module('cfkMayTheFourth');
 
-	app.controller('formController', FormController);
-
-	function FormController() {
-
-	};
-
 	app.component('formControl', {
 		controller: FormControl,
 		controllerAs: 'li',
