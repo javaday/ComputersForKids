@@ -19,7 +19,7 @@ function defaultErrorHandler(err, req, res, next) {
 
 function saveDonation(req, res, next) {
 
-	db.create('donations', {
+	db.donations.createDonation({
 		body: req.body,
 		query: req.query
 	});

@@ -19,4 +19,4 @@ class User extends Visitor {
     }
 }
 
-module.exports = Visitor;
+module.exports = User;

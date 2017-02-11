@@ -1,6 +1,7 @@
 const admin = require('firebase-admin');
 const path = require('path');
 const VisitorsDb = require('./visitors');
+const DonationsDb = require('./donations');
 const UsersDb = require('./users');
 
 let instance = null;
@@ -18,6 +19,7 @@ class Database {
 
 		this.fb = this.app.database();
 		this.visitors = new VisitorsDb(this);
+		this.donations = new DonationsDb(this);
 		this.users = new UsersDb(this);
 	}
 
