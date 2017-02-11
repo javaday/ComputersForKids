@@ -10,8 +10,9 @@
 		</div>
 		<div class="row row2-bg">
 			<div class="col-xs-12 col-md-10 col-md-offset-1 text-center" id="row2-fg">
-				<h4 class="text-signup">Blah blah blah here is the form to <button class="btn btn-warning" id="sign-up"><strong>Sign Up</strong></button> to
-					be one of your favorite Star Wars character during the event. </h4>
+				<h4 class="text-signup">Blah blah blah here is the form to 
+					<button type="button" class="btn btn-warning" ng-click="cd.divDrop()" ng-class="{ disabled: cd.formOpened }" id="sign-up"><strong>Sign Up</strong></button> to
+					be one of your favorite Galaxy Warriors character during the event. </h4>
 				<audio id="door-sound" src="assets/audio/spacedoorsfx.mp3"></audio>
 			</div>
 		</div>
@@ -23,35 +24,19 @@
 					<p>Please select a time slot.</p>
 					<div class="col-md-3 timeSlot">
 						<p>6:00PM - 6:30PM</p>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="cd.signup(1800)">Sign Up</button>
 					</div>
 					<div class="col-md-3 timeSlot">
 						<p>6:30PM - 7:00PM</p>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Sign Up</button>
 					</div>
 					<div class="col-md-3 timeSlot">
 						<p>7:00PM - 7:30PM</p>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Sign Up</button>
 					</div>
 					<div class="col-md-3 timeSlot">
 						<p>7:30PM - 8:00PM</p>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
-						<button type="button" class="btn btn-primary time-block-1" ng-click="">Available</button>
+						<button type="button" class="btn btn-primary time-block-1" ng-click="">Sign Up</button>
 					</div>
 				</div>
 			</div>
