@@ -1,6 +1,6 @@
 (function () {
 
-	let app = angular.module('cfkMayTheFourth', ['ui.router', 'ui.bootstrap', 'ngMap']);
+	let app = angular.module('cfkMayTheFourth', ['ui.router', 'ui.bootstrap', 'ngMap', 'ngAudio']);
 
 	app.value('profile', {
 		id: '',

@@ -6,8 +6,18 @@
 	<circle-progress ng-attr-value="{{ cd.seconds }}" total="60" caption="Seconds" stroke-width="4" radius="80" />
 </div>
 <div class="volume">
-	<span class="fa-stack fa-lg">
-		<i class="fa fa-volume-up fa-stack-1x"></i>
-		<i class="fa fa-ban fa-stack-2x text-danger"></i>
-	</span>
+	<a href="" ng-click="cd.toggleSound()">
+		<span ng-if="!cd.muted" class="fa-stack fa-lg">
+			<i class="fa fa-volume-up fa-stack-1x"></i>
+			<i class="fa fa-ban fa-stack-2x text-danger"></i>
+		</span>
+		<span ng-if="cd.muted" class="fa-stack fa-lg">
+			<i class="fa fa-volume-up fa-stack-1x"></i>
+		</span>
+	</a>
 </div>
+<!--
+<audio id="countdown-audio" autoplay="true" loop="true" ng-attr-muted="{{ cd.sound }}">
+	<source src="assets/audio/preparing-for-battle.wav" type="audio/wav">
+</audio>
+-->

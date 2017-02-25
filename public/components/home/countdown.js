@@ -12,9 +12,9 @@
 		}
 	});
 
-	CountdownController.$inject = ['$timeout'];
+	CountdownController.$inject = ['$timeout', 'ngAudio'];
 
-	function CountdownController($timeout) {
+	function CountdownController($timeout, ngAudio) {
 
 		let cd = this;
 
@@ -22,11 +22,20 @@
 		cd.hours = 0;
 		cd.minutes = 0;
 		cd.seconds = 0;
+		cd.muted = false;
+		cd.sound = ngAudio.load('assets/audio/preparing-for-battle.wav');
 
 		cd.$onInit = function () {
 			setInterval(tick, 1000);
+			cd.sound.play();
+			//cd.sound.muting = false;
 		}
 
+		cd.toggleSound = function () {
+			cd.muted = !cd.muted;
+			cd.sound.muting = cd.muted;
+		}	
+		
 		function tick() {
 
             $timeout(function() {
