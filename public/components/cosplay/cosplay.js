@@ -21,17 +21,22 @@
 
         let cd = this;
 
+        cd.formOpened = false;
+
         cd.$onInit = function () {
 
-            //Drop down div
-            $("#sign-up").click(function () {
-
-                let door = document.getElementById('door-sound');
-                door.play();
-                $("#div-slide").slideToggle(2030, function () {
-                });
-            });
         }
+            cd.divDrop = function () {
+                
+                if(cd.formOpened == false) {
+                    $("#div-slide").slideToggle(2030, function () {
+                    });
+                    let door = document.getElementById('door-sound');
+                    door.play();
+                    cd.formOpened = true
+                }
+              
+            }
 
         cd.signup = function (startTime) {
 

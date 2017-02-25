@@ -1,16 +1,16 @@
 (function () {
-	
+
 	let app = angular.module('cfkMayTheFourth', ['ui.router', 'ui.bootstrap', 'ngMap']);
 
 	app.value('profile', {
-        id: '',
-        email: '',
-        firstName: '',
-        lastName: '',
-        roles: {}
+		id: '',
+		email: '',
+		firstName: '',
+		lastName: '',
+		roles: {}
 	});
 
-    app.constant('LocalStorageId', 'CFK-VISITOR');
+	app.constant('LocalStorageId', 'CFK-VISITOR');
 	app.config(AppConfiguration);
 
 	AppConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -35,6 +35,10 @@
 			.state('cosplay', {
 				url: '/cosplay',
 				component: 'cosplayDetail'
+			})
+			.state('donation', {
+				url: '/donation',
+				component: 'formControl'
 			})
 			.state('announcements-admin', {
 				url: '/announcements/admin',
