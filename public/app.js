@@ -24,6 +24,10 @@
 				url: '/',
 				component: 'home'
 			})
+			.state('intro', {
+				url: '/intro',
+				component: 'intro'
+			})
 			.state('game', {
 				url: '/game',
 				component: 'spaceGame'
